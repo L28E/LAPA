@@ -23,7 +23,7 @@ for k=1:max_iterations
       for y=2:ny-1
           V(x,y)=(V(x-1,y)+V(x+1,y)+V(x,y-1)+V(x,y+1))/4;          
       end
-    end
+    end  
     
     % Plot voltage
     subplot(2,1,1);
@@ -32,8 +32,9 @@ for k=1:max_iterations
     
     % Plot E field (/w surf)
     subplot(2,1,2);
-    [Ex,Ey]=gradient(-V);   
-    surf(Ex,Ey);   
+    %[Ex,Ey]=gradient(-V);
+    [Ex,Ey]=gradient(-imboxfilt(V,3));
+    surf(Ex,Ey);    
     
     pause(0.0001)    
 end
