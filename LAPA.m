@@ -9,7 +9,7 @@ max_iterations=300;
 top_val=0;
 bottom_val=0;
 left_val=1;
-right_val=1;
+right_val=1; % Setting this bc to 1 mirrors the previous behaviour so it occurs on both the left and right, looking like a saddle
 
 % Set boundary conditions
 V(1,:)=left_val;   
@@ -27,7 +27,7 @@ for k=1:max_iterations
     
     % Plot voltage
     subplot(2,1,1);
-    %surf(V)
+    %surf(V) % Appears as expected, a gentle slope in from left to right, with a large slope in the top left and bottom left 
     surf(imboxfilt(V,3))
     
     % Plot E field (/w surf)
